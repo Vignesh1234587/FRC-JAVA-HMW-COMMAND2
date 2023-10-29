@@ -9,6 +9,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.sensors.Pigeon2;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class DriveTrain extends SubsystemBase {
   /** Creates a new DriveTrain. */
@@ -20,15 +21,15 @@ public class DriveTrain extends SubsystemBase {
 
   Pigeon2 pigeon;
   public DriveTrain() {
-    leftBack = new TalonFX(0);
-    rightBack = new TalonFX(1);
-    leftFront = new TalonFX(2);
-    rightFront= new TalonFX(3);
+    leftBack = new TalonFX(Constants.LEFT_BACK_PORT);
+    rightBack = new TalonFX(Constants.RIGHT_BACK_PORT);
+    leftFront = new TalonFX(Constants.LEFT_FRONT_PORT);
+    rightFront= new TalonFX(Constants.RIGHT_FRONT_PORT);
     
 
     leftBack.follow(leftFront);
     rightBack.follow(rightFront);
-    pigeon = new Pigeon2(6);
+    pigeon = new Pigeon2(Constants.PIGEON_PORT);
 
   }
 
