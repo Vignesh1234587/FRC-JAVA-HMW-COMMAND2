@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
@@ -43,7 +44,7 @@ public class RobotContainer {
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
    
-    new Trigger(() -> joy.getRawButton(1)).onTrue(new InstantCommand(drivetrain::resetGyro, drivetrain));
+     new JoystickButton(joy, 1).onTrue(new InstantCommand(drivetrain::resetGyro, drivetrain));
 
   }
 
@@ -65,4 +66,5 @@ public class RobotContainer {
 
     return joy.getRawAxis(4);
   }
+  
 }
