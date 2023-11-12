@@ -47,7 +47,7 @@ public class RobotContainer {
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
    
-     new JoystickButton(joy, 1).onTrue(new InstantCommand(() -> drivetrain.resetGyro(), drivetrain));
+     //new JoystickButton(joy, 1).onTrue(new InstantCommand(() -> drivetrain.resetGyro(), drivetrain));
 
      //new JoystickButton(joy, 1).onTrue(new drive());
      //new JoystickButton(joy, 2).onTrue(new InstantCommand(, drivetrain));

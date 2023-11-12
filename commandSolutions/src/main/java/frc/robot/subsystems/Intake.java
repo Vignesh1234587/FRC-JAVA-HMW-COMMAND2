@@ -14,6 +14,7 @@ import frc.robot.Constants;
 
 public class Intake extends SubsystemBase {
   /** Creates a new Intake. */
+  public int target;
   TalonFX rightMotor;
   TalonFX leftMotor;
 
@@ -31,23 +32,27 @@ public class Intake extends SubsystemBase {
      
     leftMotor.setInverted(true);
     leftMotor.follow(rightMotor);
+
+    target = 0;
   }
 
 
   public void extend(){
-     rightMotor.set(ControlMode.PercentOutput, intakeController.calculate(rightMotor.getSelectedSensorPosition(), 7200));
+     target = 7200;
 
 
   }
 
   public void retract(){
-      rightMotor.set(ControlMode.PercentOutput, intakeController.calculate(rightMotor.getSelectedSensorPosition(), 0));
-
+      
+     target = 0;
 
 
   }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    rightMotor.set(ControlMode.PercentOutput, intakeController.calculate(rightMotor.getSelectedSensorPosition(), target));
+    
   }
 }
