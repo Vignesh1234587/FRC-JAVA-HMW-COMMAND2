@@ -4,22 +4,17 @@
 
 package frc.robot.subsystems;
 
-<<<<<<< Updated upstream
-=======
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonFX;
 import com.ctre.phoenix.sensors.Pigeon2;
 
 import edu.wpi.first.math.controller.PIDController;
->>>>>>> Stashed changes
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
 
 public class DriveTrain extends SubsystemBase {
   /** Creates a new DriveTrain. */
   
-<<<<<<< Updated upstream
-  public DriveTrain() {
-=======
   TalonFX leftBack;
   TalonFX rightBack;
   TalonFX leftFront;
@@ -33,14 +28,11 @@ public class DriveTrain extends SubsystemBase {
     leftFront = new TalonFX(Constants.LEFT_FRONT_PORT);
     rightFront= new TalonFX(Constants.RIGHT_FRONT_PORT);
     driveController = new PIDController(1000, 1000, 1000);
->>>>>>> Stashed changes
 
 
 
   }
 
-<<<<<<< Updated upstream
-=======
 
 
   public void drive(double x, double y){
@@ -54,7 +46,6 @@ public class DriveTrain extends SubsystemBase {
     pigeon.setYaw(0);
   }
   
->>>>>>> Stashed changes
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

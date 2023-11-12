@@ -16,8 +16,6 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
-<<<<<<< Updated upstream
-=======
 //   port/device numbers 
 public static final int LEFT_BACK_PORT = 0;
 public static final int LEFT_FRONT_PORT = 1;
@@ -29,5 +27,4 @@ public static final double[] intakeGains = {0, 0, 0};
 public static final int IntakeMotor1 = 0;
 public static final int IntakeMotor2 = 0;
 
->>>>>>> Stashed changes
 }

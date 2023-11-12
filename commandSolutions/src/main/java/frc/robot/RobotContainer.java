@@ -7,14 +7,14 @@ package frc.robot;
 import frc.robot.Constants.OperatorConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.subsystems.DriveTrain;
 import frc.robot.subsystems.ExampleSubsystem;
-<<<<<<< Updated upstream
-=======
 import frc.robot.subsystems.Intake;
 import edu.wpi.first.wpilibj.Joystick;
->>>>>>> Stashed changes
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 /**
@@ -25,19 +25,10 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-<<<<<<< Updated upstream
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
-
-  // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
-
-=======
   public final static DriveTrain drivetrain = new DriveTrain();
   public final static Intake intake = new Intake();
   private final static Joystick joy = new Joystick(0);
   //private final static JoystickButton joyB = new JoystickButton(joy, 1);
->>>>>>> Stashed changes
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
@@ -55,14 +46,6 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-<<<<<<< Updated upstream
-    new Trigger(m_exampleSubsystem::exampleCondition)
-        .onTrue(new ExampleCommand(m_exampleSubsystem));
-
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
-=======
    
      new JoystickButton(joy, 1).onTrue(new InstantCommand(() -> drivetrain.resetGyro(), drivetrain));
 
@@ -72,7 +55,6 @@ public class RobotContainer {
      //intake 
      new JoystickButton(joy, 1).onTrue(new InstantCommand(intake::extend, intake));
      new JoystickButton(joy, 2).onTrue(new InstantCommand(intake::retract, intake));
->>>>>>> Stashed changes
   }
 
   /**
@@ -82,6 +64,6 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An example command will be run in autonomous
-    return Autos.exampleAuto(m_exampleSubsystem);
+    return null;
   }
 }
